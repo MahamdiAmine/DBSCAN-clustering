@@ -11,9 +11,6 @@ from PIL import Image
 import matplotlib.pyplot as plt
 from pylab import rcParams
 import pandas as pd
-from sklearn.cluster import DBSCAN
-import sklearn.utils
-from sklearn.preprocessing import StandardScaler
 from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
 from pylab import rcParams
@@ -41,7 +38,6 @@ try:
 except ValueError:
     print("Args !!")
 
-print(show,save,data_path,Epsilon,MinPts)
 #load the dataset
 weather_df = pd.read_csv(data_path)
 print ("[*] Shape of the DataFrame: ", weather_df.shape)
@@ -135,7 +131,7 @@ for clust_number in set(labels):
         ceny=np.mean(clust_set.ym) 
         plt.text(cenx,ceny,str(clust_number), fontsize=30, color='red',)
         print ("Cluster "+str(clust_number)+', Average Mean Temp: '+ str(np.mean(clust_set.Tm)))
-plt.title(r"Weather Stations in Canada Clustered (1): $ \epsilon = ",Epsilon", fontsize=14)        
+plt.title(r"Weather Stations in Canada Clustered ", fontsize=14)        
 if save:
     plt.savefig("etopo_cluster.png", dpi=300)        
 if show:
