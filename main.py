@@ -26,8 +26,6 @@ print ('Number of arguments:', NO_args, 'arguments.')
 print ('Argument List:', str(sys.argv))
 if NO_args!=6:
     exit('number of args !!')
-
-
 try:
     show= str(sys.argv[1])
     save= str(sys.argv[2])
